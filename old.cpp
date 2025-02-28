@@ -17,11 +17,26 @@ void printField(Tile field[][LENGTH])
     {
         for (j = 0; j < LENGTH - 1; j++)
         {
+            /*
             if (!field[i][j].revealed)
             {
                 std::cout << "*";
             }
             else if (field[i][j].number == 0)
+            {
+                std::cout << " ";
+            }
+            else
+            {
+                std::cout << field[i][j].number;
+            }
+            */
+
+            if (field[i][j].mine)
+            {
+                std::cout << "M";
+            }
+            if (field[i][j].number == 0)
             {
                 std::cout << " ";
             }
