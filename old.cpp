@@ -57,7 +57,7 @@ void generateMines(Tile field[][LENGTH])
     {
         for (j = 1; j < LENGTH - 1; j++)
         {
-            randNum = rand() % 5 + 1;
+            randNum = rand() % 5 + 1; // random number bewteen 1 and 5 (20% chance to hit any given number)
             if (randNum == 1)
             {
                 field[i][j].mine = true;
@@ -73,15 +73,18 @@ void generateNums(Tile field[][LENGTH])
     {
         for (j = 1; j < LENGTH - 1; j++)
         {
-            // Check the EIGHT surrounding tiles, increase count if it is a mine
-            for (check = 0; check < 9; check++)
+            if (!field[i][j].mine)
             {
-                if (field[(i - 1) + (check / 3)][(j - 1) + (check % 3)].mine)
-                    mineCount++;
-            }
+                // Check the EIGHT surrounding tiles, increase count if it is a mine
+                for (check = 0; check < 9; check++)
+                {
+                    if (field[(i - 1) + (check / 3)][(j - 1) + (check % 3)].mine)
+                        mineCount++;
+                }
 
-            field[i][j].number = mineCount;
-            mineCount = 0;
+                field[i][j].number = mineCount;
+                mineCount = 0;
+            }
         }
     }
 }

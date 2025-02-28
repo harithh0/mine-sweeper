@@ -3,7 +3,7 @@
 
 Functions:
 - Generate mines (2D array, int length) -> void
-- 
+- Generate numbers (2D array, int length) -> void
 
 Behaviour:
 - ABC, 123 border for cordenetes.
